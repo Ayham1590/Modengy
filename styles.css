@@ -259,7 +259,7 @@ header {
     display: inline-block;
     font-size: 2rem;
     color: #00bcd4;
-    animation: scrollText 30s linear infinite;
+    animation: scrollText 20s linear infinite;
 }
 
 @keyframes scrollText {
