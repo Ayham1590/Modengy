@@ -78,7 +78,6 @@ header {
     color: #00bcd4;
 }
 
-/* Social Links on Desktop */
 .social-links.desktop-only {
     display: flex;
     gap: 15px;
@@ -96,12 +95,10 @@ header {
     transform: scale(1.1);
 }
 
-/* Hide mobile-specific social links on desktop */
 .mobile-only {
     display: none;
 }
 
-/* Burger Menu */
 .burger {
     display: none;
     cursor: pointer;
@@ -116,7 +113,6 @@ header {
     background-color: #fff;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .burger {
         display: flex;
@@ -139,7 +135,6 @@ header {
         display: flex;
     }
 
-    /* Show social links inside the menu on mobile */
     .social-links.mobile-only {
         display: flex;
         flex-direction: row;
@@ -147,7 +142,6 @@ header {
         justify-content: center;
     }
 
-    /* Hide desktop social links */
     .social-links.desktop-only {
         display: none;
     }
@@ -163,7 +157,6 @@ header {
     }
 }
 
-/* Hero Section */
 .hero {
     display: flex;
     justify-content: center;
@@ -189,8 +182,11 @@ header {
 .hero-left h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-    color: #00bcd4;
+    background: linear-gradient(45deg, #a7edf7, #16c9dd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 
 .hero-left p {
     font-size: 1.2rem;
@@ -242,37 +238,38 @@ header {
 .carousel {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    /* Black background with opacity */
     padding: 20px;
     border-top: 3px solid;
     border-bottom: 3px solid;
-    /* Slight rounded corners at the top */
     border-image: linear-gradient(45deg, #ff4081, #00bcd4) 1;
-    /* Gradient border */
     overflow: hidden;
     white-space: nowrap;
-    text-align: center;
-    margin-top: 30px;
+    position: relative;
 }
 
-.carousel p {
+.carousel-content {
     display: inline-block;
-    font-size: 2rem;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1.8rem;
     color: #00bcd4;
-    animation: scrollText 20s linear infinite;
+    will-change: transform;
+    display: flex;
+    align-items: center;
 }
 
-@keyframes scrollText {
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
+.carousel-content span {
+    padding-right: 50px;
 }
 
-/* Responsive Design */
+
+.carousel-content span {
+    padding-right: 50px;
+}
+
+
+
+
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -310,7 +307,6 @@ header {
     }
 }
 
-/* Info Section */
 .info-section {
     display: flex;
     justify-content: center;
@@ -356,7 +352,6 @@ header {
     line-height: 1.5;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .info-content {
         flex-direction: column;
@@ -377,7 +372,6 @@ header {
     }
 }
 
-/* How to Buy Section */
 .how-to-buy-section {
     padding: 50px;
     text-align: center;
@@ -387,14 +381,14 @@ header {
 .how-to-buy-section h2 {
     font-size: 5rem;
     margin-bottom: 80px;
-    color: #00bcd4;
+    background: linear-gradient(45deg, #a7edf7, #16c9dd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Grid Layout for Steps */
 .buy-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Two columns for grid layout */
     gap: 40px;
 }
 
@@ -402,10 +396,8 @@ header {
     display: flex;
     align-items: flex-start;
     padding: 20px;
-    /* Slightly transparent background */
     border-radius: 10px;
     border-image: linear-gradient(45deg, #ff4081, #00bcd4) 1;
-    /* Gradient border */
 }
 
 .step-icon {
@@ -433,25 +425,38 @@ header {
 @media (max-width: 768px) {
     .buy-grid {
         grid-template-columns: 1fr;
-        /* Switch to single column on mobile */
+        gap: 30px;
     }
 
-    .how-to-buy-section h2 {
-        font-size: 3rem;
-        margin-bottom: 40px;
-    }
-
-    .step-info h3 {
-        font-size: 1.3rem;
-    }
-
-    .step-info p {
-        font-size: 0.9rem;
+    .buy-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
     }
 
     .step-icon {
+        order: -1;
         width: 80px;
         height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .step-info {
+        text-align: center;
+        padding: 0;
+    }
+
+    .step-info h3 {
+        font-size: 1.8rem;
+        color: #00bcd4;
+        margin-bottom: 15px;
+    }
+
+    .step-info p {
+        font-size: 1rem;
+        line-height: 1.5;
     }
 }
 
@@ -459,15 +464,11 @@ header {
 .tokenomics-section {
     display: flex;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
     background: url('tok.png') no-repeat center center/cover;
-    /* Add your background image */
     padding: 100px 0;
     color: white;
     height: 80vh;
-    /* Make the section take 80% of the viewport height */
     text-align: center;
 }
 
@@ -476,22 +477,21 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Make sure all content inside is also centered */
 }
 
 .tokenomics-section h2 {
     font-size: 5rem;
     margin-bottom: 40px;
-    color: #00bcd4;
+    background: linear-gradient(45deg, #a7edf7, #16c9dd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Tokenomics Box */
 .tokenomics-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.7);
-    /* Black background with opacity */
     border-radius: 15px;
     padding: 30px;
     max-width: 800px;
@@ -520,7 +520,6 @@ header {
     font-weight: bold;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .tokenomics-box {
         flex-direction: column;
@@ -538,5 +537,39 @@ header {
 
     .tokenomics-right p {
         font-size: 1rem;
+    }
+}
+
+.parallax-image {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('im.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: transform 0.5s ease-out;
+}
+
+.parallax-image.scrolled .parallax-background {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+    .parallax-background {
+        background-attachment: scroll;
+    }
+
+    .parallax-image {
+        height: 40vh;
     }
 }
